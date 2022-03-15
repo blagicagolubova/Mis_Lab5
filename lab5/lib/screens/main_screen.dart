@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:lab5/model/exam_item.dart';
 import 'package:lab5/screens/calendar.dart';
 import 'package:lab5/screens/exam_detail_screen.dart';
+import 'package:lab5/screens/location.dart';
 import 'package:nanoid/nanoid.dart';
 
 class MainScreen extends StatefulWidget {
@@ -66,6 +67,12 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
+  void GetLocationScreen(BuildContext context){
+    Navigator.of(context).pushNamed(
+        LocationScreen.routeName
+    );
+  }
+
   Widget createBody(){
     return Column(
       children: [
@@ -97,7 +104,8 @@ class _MainScreenState extends State<MainScreen> {
                     )
                 );
               },
-            )
+            ),
+
         ),
 
       ],
@@ -158,7 +166,18 @@ class _MainScreenState extends State<MainScreen> {
         } ,
           icon: Icon(Icons.add, size: 35),
           padding: EdgeInsets.only(right: 40),
-        )
+        ),
+        FlatButton(
+            onPressed: () {
+              GetLocationScreen(context);
+            },
+            child: Text(
+              'Location',
+              style: TextStyle(
+                  fontFamily: 'Futura',
+                  fontSize: 12,
+                  color: Color.fromRGBO(80, 86, 89, 100)),
+            )),
       ],
     );
   }
